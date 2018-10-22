@@ -1,0 +1,22 @@
+﻿<Window x:Class="QrGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QrGenerator"
+        mc:Ignorable="d"
+        Title="QR Generator" Height="480" Width="640" WindowStartupLocation="CenterScreen" Background="#FFFDFDFD">
+    <Grid>
+        <Image x:Name="QrImage" HorizontalAlignment="Left" Height="319" Margin="24,24,0,0" VerticalAlignment="Top" Width="289"/>
+        <TextBox x:Name="QrText" HorizontalAlignment="Left" Height="23" Margin="68,348,0,0" TextWrapping="Wrap" Padding="0,2,0,0" Text="" VerticalAlignment="Top" Width="245"/>
+        <Button Content="Generate" HorizontalAlignment="Left" Margin="24,389,0,0" VerticalAlignment="Top" Width="128" Click="Generate_Qr"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="176,389,0,0" VerticalAlignment="Top" Width="137" Click="Clear_Qr"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="319" Margin="24,24,0,0" VerticalAlignment="Top" Width="289"/>
+        <Label FontSize="14" Content="Text:" HorizontalAlignment="Left" Margin="24,348,0,0" VerticalAlignment="Top" Width="39" Padding="0,2,0,0" Height="23"/>
+        <Label FontSize="14" Padding="0,2.5,0,0" Content="Enter image name:" HorizontalAlignment="Left" Margin="365,24,0,0" VerticalAlignment="Top" Width="235" Height="25"/>
+        <TextBox x:Name="QrFilename" HorizontalAlignment="Left" Height="23" Margin="365,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191" Padding="0,2,0,0"/>
+        <Label Padding="0,6,0,0" Content=".png" HorizontalAlignment="Left" Margin="562,54,0,0" VerticalAlignment="Top" Height="23"/>
+        <Button FontSize="15" Content="Save Image" HorizontalAlignment="Left" Margin="365,99,0,0" VerticalAlignment="Top" Width="231" Height="24" Click="Save_Qr"/>
+
+    </Grid>
+</Window>
