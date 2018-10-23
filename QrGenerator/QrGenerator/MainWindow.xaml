@@ -13,10 +13,13 @@
         <Button Content="Clear" HorizontalAlignment="Left" Margin="176,389,0,0" VerticalAlignment="Top" Width="137" Click="Clear_Qr"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="319" Margin="24,24,0,0" VerticalAlignment="Top" Width="289"/>
         <Label FontSize="14" Content="Text:" HorizontalAlignment="Left" Margin="24,348,0,0" VerticalAlignment="Top" Width="39" Padding="0,2,0,0" Height="23"/>
-        <Label FontSize="14" Padding="0,2.5,0,0" Content="Enter image name:" HorizontalAlignment="Left" Margin="365,24,0,0" VerticalAlignment="Top" Width="235" Height="25"/>
-        <TextBox x:Name="QrFilename" HorizontalAlignment="Left" Height="23" Margin="365,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191" Padding="0,2,0,0"/>
-        <Label Padding="0,6,0,0" Content=".png" HorizontalAlignment="Left" Margin="562,54,0,0" VerticalAlignment="Top" Height="23"/>
-        <Button FontSize="15" Content="Save Image" HorizontalAlignment="Left" Margin="365,99,0,0" VerticalAlignment="Top" Width="231" Height="24" Click="Save_Qr"/>
+        <Label FontSize="14" Padding="0,2.5,0,0" Content="Enter image name:" HorizontalAlignment="Left" Margin="357,149,0,0" VerticalAlignment="Top" Width="235" Height="25"/>
+        <TextBox x:Name="QrFilename" HorizontalAlignment="Left" Height="23" Margin="356,179,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191" Padding="0,2,0,0"/>
+        <Label Padding="0,6,0,0" Content=".png" HorizontalAlignment="Left" Margin="554,179,0,0" VerticalAlignment="Top" Height="23"/>
+        <Button FontSize="15" Content="Save Image" HorizontalAlignment="Left" Margin="357,224,0,0" VerticalAlignment="Top" Width="231" Height="24" Click="Save_Qr"/>
+        <Slider x:Name="QrSlider" ValueChanged="Slider_Move" HorizontalAlignment="Left" Margin="357,105,0,0" VerticalAlignment="Top" Height="22" Width="190" Maximum="100" Minimum="20" LargeChange="10" Value="20"/>
+        <Label FontSize="14" Content="Pixels per model" HorizontalAlignment="Left" Margin="357,74,0,0" VerticalAlignment="Top" Width="190"/>
+        <Label x:Name="PixelsLabel" Content="20" HorizontalAlignment="Left" Margin="554,101,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.402,0.523"/>
 
     </Grid>
 </Window>

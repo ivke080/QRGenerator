@@ -28,6 +28,8 @@ namespace QrGenerator
         private TextBox qrText_;
         private TextBox qrFilename_;
         private Bitmap bitmap_;
+        private Slider qrSlider_;
+        private Label pixels_;
         private QRCodeGenerator qrGenerator_;
 
         public MainWindow()
@@ -36,6 +38,8 @@ namespace QrGenerator
             qrImage_ = (Image)FindName("QrImage");
             qrText_ = (TextBox)FindName("QrText");
             qrFilename_ = (TextBox)FindName("QrFilename");
+            qrSlider_ = (Slider)FindName("QrSlider");
+            pixels_ = (Label)FindName("PixelsLabel");
             qrGenerator_ = new QRCodeGenerator();
         }
 
@@ -74,6 +78,11 @@ namespace QrGenerator
             {
                 MessageBox.Show("Invalid filename");
             }
+        }
+
+        private void Slider_Move(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            
         }
     }
 }
