@@ -28,7 +28,6 @@ namespace QrGenerator
         private TextBox qrText_;
         private TextBox qrFilename_;
         private Bitmap bitmap_;
-        private Slider qrSlider_;
         private Label pixels_;
         private QRCodeGenerator qrGenerator_;
 
@@ -38,7 +37,6 @@ namespace QrGenerator
             qrImage_ = (Image)FindName("QrImage");
             qrText_ = (TextBox)FindName("QrText");
             qrFilename_ = (TextBox)FindName("QrFilename");
-            qrSlider_ = (Slider)FindName("QrSlider");
             pixels_ = (Label)FindName("PixelsLabel");
             qrGenerator_ = new QRCodeGenerator();
         }
@@ -50,13 +48,20 @@ namespace QrGenerator
 
         private void Generate_Qr(object sender, RoutedEventArgs e)
         {
-            QRCodeData qrCodeData = qrGenerator_.CreateQrCode(qrText_.Text, QRCodeGenerator.ECCLevel.H);
-            QRCode qrCode = new QRCode(qrCodeData);
-            bitmap_ = qrCode.GetGraphic(40);
+            if (qrText_.Text != "")
+            {
+                QRCodeData qrCodeData = qrGenerator_.CreateQrCode(qrText_.Text, QRCodeGenerator.ECCLevel.H);
+                QRCode qrCode = new QRCode(qrCodeData);
+                bitmap_ = qrCode.GetGraphic(int.Parse(pixels_.Content.ToString()));
 
-            var handle = bitmap_.GetHbitmap();
+                var handle = bitmap_.GetHbitmap();
 
-            qrImage_.Source = Imaging.CreateBitmapSourceFromHBitmap(handle, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                qrImage_.Source = Imaging.CreateBitmapSourceFromHBitmap(handle, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            }
+            else
+            {
+                MessageBox.Show("Invalid text");
+            }
         }
 
         private void Save_Qr(object sender, RoutedEventArgs e)
@@ -82,7 +87,12 @@ namespace QrGenerator
 
         private void Slider_Move(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            
+            var s = sender as Slider;
+            int value = (int)s.Value;
+            if (pixels_ != null)
+            {
+                pixels_.Content = value.ToString();
+            }
         }
     }
 }
